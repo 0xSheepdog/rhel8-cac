@@ -3,7 +3,6 @@
   tasks:
   - name: Install req'd packages
     dnf:
-    notify: enable_and_start_pcscd
       state: present
       name:
       - gnutls-utils
@@ -11,6 +10,7 @@
       - pcsc-lite
       - pcsc-lite-ccid
       - pcsc-lite-libs
+    notify: enable_and_start_pcscd
 
   - name: Execute add-dod-certs.sh
     script: add-dod-certs.sh
